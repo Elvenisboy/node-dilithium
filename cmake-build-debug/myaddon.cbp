@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="myaddon"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/elven/Work/myaddon/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/elven/Work/myaddon/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/elven/Work/myaddon/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="myaddon">
+				<Option output="/home/elven/Work/myaddon/cmake-build-debug/myaddon" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/elven/Work/myaddon/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 myaddon"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="myaddon/fast">
+				<Option output="/home/elven/Work/myaddon/cmake-build-debug/myaddon" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/elven/Work/myaddon/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 myaddon/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/elven/Work/myaddon/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/elven/Work/myaddon/PQCgenKAT_sign.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/api.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/dd.cpp">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/fips202.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/fips202.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/module.cc">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_callbacks.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_callbacks_12_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_callbacks_pre_12_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_converters.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_converters_43_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_converters_pre_43_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_implementation_12_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_implementation_pre_12_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_maybe_43_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_maybe_pre_43_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_new.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_object_wrap.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_persistent_12_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_persistent_pre_12_inl.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_string_bytes.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_typedarray_contents.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/node_modules/nan/nan_weak.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/ntt.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/ntt.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/packing.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/packing.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/params.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/poly.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/poly.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/polyvec.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/polyvec.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/randombytes.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/randombytes.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/reduce.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/reduce.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/rng.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/rng.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/rounding.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/rounding.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/sign.c">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/sign.h">
+			<Option target="myaddon"/>
+		</Unit>
+		<Unit filename="/home/elven/Work/myaddon/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

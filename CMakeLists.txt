@@ -1,0 +1,49 @@
+cmake_minimum_required(VERSION 3.9)
+project(myaddon)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(myaddon
+        node_modules/nan/nan.h
+        node_modules/nan/nan_callbacks.h
+        node_modules/nan/nan_callbacks_12_inl.h
+        node_modules/nan/nan_callbacks_pre_12_inl.h
+        node_modules/nan/nan_converters.h
+        node_modules/nan/nan_converters_43_inl.h
+        node_modules/nan/nan_converters_pre_43_inl.h
+        node_modules/nan/nan_implementation_12_inl.h
+        node_modules/nan/nan_implementation_pre_12_inl.h
+        node_modules/nan/nan_maybe_43_inl.h
+        node_modules/nan/nan_maybe_pre_43_inl.h
+        node_modules/nan/nan_new.h
+        node_modules/nan/nan_object_wrap.h
+        node_modules/nan/nan_persistent_12_inl.h
+        node_modules/nan/nan_persistent_pre_12_inl.h
+        node_modules/nan/nan_string_bytes.h
+        node_modules/nan/nan_typedarray_contents.h
+        node_modules/nan/nan_weak.h
+        api.h
+        dd.cpp
+        fips202.c
+        fips202.h
+        module.cc
+        ntt.c
+        ntt.h
+        packing.c
+        packing.h
+        params.h
+        poly.c
+        poly.h
+        polyvec.c
+        polyvec.h
+        PQCgenKAT_sign.c
+        randombytes.c
+        randombytes.h
+        reduce.c
+        reduce.h
+        rng.c
+        rng.h
+        rounding.c
+        rounding.h
+        sign.c
+        sign.h)

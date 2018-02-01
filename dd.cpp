@@ -1,34 +1,23 @@
-extern "C" {
-#include "./api.h"
-#include "./randombytes.h"
-}
-
-#include <nan.h>
 #include <iostream>
-#include <cstdint>
 #include <string>
 #include <vector>
-
-using namespace v8;
-using namespace Nan;
+#include "./api.h"
+#include "./randombytes.h"
+#include <stdint.h>
 
 class Dilithium
 {
   public:
     Dilithium();
-
     Dilithium(const std::vector<uint8_t> &pk, const std::vector<uint8_t> &sk);
-
     virtual ~Dilithium() = default;
 
     std::vector<uint8_t> sign(const std::vector<uint8_t> &message);
 
     std::vector<uint8_t> getSK() { return _sk; }
-
     std::vector<uint8_t> getPK() { return _pk; }
 
     unsigned int getSecretKeySize() { return CRYPTO_SECRETKEYBYTES; }
-
     unsigned int getPublicKeySize() { return CRYPTO_PUBLICKEYBYTES; }
 
     static bool sign_open(std::vector<uint8_t> &message_output,
@@ -36,18 +25,19 @@ class Dilithium
                           const std::vector<uint8_t> &pk);
 
     static std::vector<uint8_t> extract_message(std::vector<uint8_t> &message_output);
-
     static std::vector<uint8_t> extract_signature(std::vector<uint8_t> &message_output);
-
+    void set_values (int,int);
+    int area (void) {return (x*y);}
   protected:
     std::vector<uint8_t> _pk;
     std::vector<uint8_t> _sk;
+    int x,y;
 };
 
 Dilithium::Dilithium()
 {
     // TODO: Initialize keys randomly (seed?)
-    // printf("there have no data\n");
+    printf("there have no data\n");
     _pk.resize(CRYPTO_PUBLICKEYBYTES);
     _sk.resize(CRYPTO_SECRETKEYBYTES);
     crypto_sign_keypair(_pk.data(), _sk.data());
@@ -57,17 +47,6 @@ Dilithium::Dilithium(const std::vector<uint8_t> &pk, const std::vector<uint8_t> 
                                                                                        _sk(sk)
 {
     printf("data is here\n");
-    size_t _pkLen = _pk.size();
-    size_t _skLen = _sk.size();
-    size_t pkLen = pk.size();
-    size_t skLen = sk.size();
-    // printf("1:%d\n", _pkLen);
-    // printf("2:%d\n", _skLen);
-    // printf("3:%d\n"), pkLen;
-    // printf("4:%d\n", skLen);
-    // printf("CRYPTO_SECRETKEYBYTES:%d\n", CRYPTO_SECRETKEYBYTES);
-    // printf("CRYPTO_PUBLICKEYBYTES%d\n", CRYPTO_PUBLICKEYBYTES);
-
     // printf("hhhhh");
     // TODO: Verify sizes - CRYPTO_SECRETKEYBYTES / CRYPTO_PUBLICKEYBYTES
 }
@@ -104,10 +83,9 @@ bool Dilithium::sign_open(std::vector<uint8_t> &message_output,
                                 message_signed.data(),
                                 message_signed.size(),
                                 pk.data());
-    ;
+
     // TODO Leon: message_out has size()+CRYPTO_BYTES. Should we return just the message?
     // if ret == 0, success and this return value = 1
-    std::cout<<ret<<std::endl;
     return ret == 0;
 }
 
@@ -120,81 +98,42 @@ std::vector<uint8_t> Dilithium::extract_signature(std::vector<uint8_t> &message_
 {
     return std::vector<uint8_t>(message_output.end() - CRYPTO_BYTES, message_output.end());
 }
-
-NAN_METHOD(Keygen)
+void Dilithium::set_values (int a, int b) {
+        x = a;
+        y = b;
+    }
+    
+int main()
 {
+    // std::cout << "emm";
+    // std::cout << CRYPTO_SECRETKEYBYTES;
+    // unsigned char pk[CRYPTO_PUBLICKEYBYTES];
+    // unsigned char sk[CRYPTO_SECRETKEYBYTES];
+    // crypto_sign_keypair(pk, sk);
     Dilithium dilithium;
+    
     auto pk = dilithium.getPK();
     auto sk = dilithium.getSK();
-    size_t pkLen = dilithium.getPublicKeySize();
-    size_t skLen = dilithium.getSecretKeySize();
+    Dilithium d(pk,sk);
+    auto pk2 = d.getPK();
 
-    v8::Local<v8::Object> obj = Nan::New<v8::Object>();
-
-    Nan::Set(obj, Nan::New("pubKey").ToLocalChecked(), Encode(pk.data(), pkLen, BUFFER));
-    Nan::Set(obj, Nan::New("priKey").ToLocalChecked(), Encode(sk.data(), skLen, BUFFER));
-    info.GetReturnValue().Set(obj);
-
-    //  info.GetReturnValue().Set(Encode("hello", 5, HEX));
-}
-
-NAN_METHOD(Sign)
-{
-    if (info.Length() < 1)
-    {
-        return;
-    }
-    std::vector<uint8_t> pk;
-    std::vector<uint8_t> sk;
-    std::vector<unsigned char> message;
-    pk.reserve(CRYPTO_PUBLICKEYBYTES);
-    sk.reserve(CRYPTO_SECRETKEYBYTES);
-    unsigned char *skBuf = (unsigned char *)node::Buffer::Data(info[0]);
-    unsigned char *msgBuf = (unsigned char *)node::Buffer::Data(info[1]);
-    size_t len = node::Buffer::Length(info[1]);
-    message.reserve(len);
-    sk.insert(sk.begin(), &skBuf[0], &skBuf[CRYPTO_SECRETKEYBYTES - 1]);
-
-    message.insert(message.begin(), &msgBuf[0], &msgBuf[len - 1]);
-    Dilithium dilithium(pk, sk);
+    std::vector<unsigned char> message{0, 1, 2, 4, 6, 9, 1};
     auto message_signed = dilithium.sign(message);
-
-    v8::Local<v8::Object> obj = Nan::New<v8::Object>();
-    Nan::Set(obj, Nan::New("messageSigned").ToLocalChecked(), Encode(message_signed.data(), message_signed.size(), BUFFER));
-    info.GetReturnValue().Set(obj);
-}
-
-NAN_METHOD(Open)
-{
-    std::vector<uint8_t> pk;
-    std::vector<uint8_t> sk;
-    std::vector<unsigned char> sm;
-
-    pk.reserve(CRYPTO_PUBLICKEYBYTES);
-    sk.reserve(CRYPTO_SECRETKEYBYTES);
-    size_t len = node::Buffer::Length(info[1]);
-    sm.reserve(len);
+    std::vector<unsigned char> message_out(message.size());
+    auto ret = Dilithium::sign_open(message_out, message_signed, pk);
+    // printf("%d\n",ret);
+    // printf("%s\n", pk);
+    // printf("%s\n", pk2);
     
-    unsigned char *pkBuf = (unsigned char *)node::Buffer::Data(info[0]);
-    unsigned char *smBuf = (unsigned char *)node::Buffer::Data(info[1]);
-
-    
-    pk.insert(pk.begin(), &pkBuf[0], &pkBuf[CRYPTO_PUBLICKEYBYTES - 1]);
-    sm.insert(sm.begin(), &smBuf[0], &smBuf[len - 1]);
-    Dilithium dilithium(pk, sk);
-    std::vector<unsigned char> message_out(sm.size());
-    auto p = dilithium.getPK();
-    auto ret = Dilithium::sign_open(message_out, sm, p);
+    std::cout<<"ret:";
     std::cout<<ret<<std::endl;
+    dilithium.set_values (3,4);
+        std::cout << "rect area: " << dilithium.area() << std::endl;
+        if (pk == pk2) {
+            printf("相等equal\n");
+        }else{
+            printf("不等not equal2\n");
+            
+        }
+    return 0;
 }
-NAN_MODULE_INIT(Init)
-{
-    Nan::Set(target, Nan::New("sign").ToLocalChecked(),
-             Nan::GetFunction(Nan::New<FunctionTemplate>(Sign)).ToLocalChecked());
-    Nan::Set(target, Nan::New("keygen").ToLocalChecked(),
-             Nan::GetFunction(Nan::New<FunctionTemplate>(Keygen)).ToLocalChecked());
-    Nan::Set(target, Nan::New("open").ToLocalChecked(),
-             Nan::GetFunction(Nan::New<FunctionTemplate>(Open)).ToLocalChecked());
-}
-
-NODE_MODULE(myaddon, Init)

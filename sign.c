@@ -321,6 +321,7 @@ int crypto_sign_open(unsigned char *m,
   *mlen = smlen - CRYPTO_BYTES;
 
   unpack_pk(rho, &t1, pk);
+  
   unpack_sig(&z, &h, &c, sm);
   if(polyvecl_chknorm(&z, GAMMA1 - BETA))
     goto badsig;
